@@ -1,14 +1,14 @@
 class AuctionsController < ApplicationController
+
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
 
   # GET /auctions
-  # GET /auctions.json
   def index
     @auctions = Auction.all
   end
 
   # GET /auctions/1
-  # GET /auctions/1.json
   def show
   end
 
@@ -22,42 +22,31 @@ class AuctionsController < ApplicationController
   end
 
   # POST /auctions
-  # POST /auctions.json
   def create
-    @auction = Auction.new(auction_params)
+    params[:auction][:user_id] = current_user.id
 
-    respond_to do |format|
-      if @auction.save
-        format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
-        format.json { render :show, status: :created, location: @auction }
-      else
-        format.html { render :new }
-        format.json { render json: @auction.errors, status: :unprocessable_entity }
-      end
+    @auction = Auction.new(auction_params)
+    if @auction.save
+      redirect_to @auction, notice: 'Auction was successfully created.' 
+    else
+      render action: "new"
     end
   end
 
-  # PATCH/PUT /auctions/1
-  # PATCH/PUT /auctions/1.json
   def update
-    respond_to do |format|
-      if @auction.update(auction_params)
-        format.html { redirect_to @auction, notice: 'Auction was successfully updated.' }
-        format.json { render :show, status: :ok, location: @auction }
-      else
-        format.html { render :edit }
-        format.json { render json: @auction.errors, status: :unprocessable_entity }
-      end
+    if @auction.update(auction_params)
+      redirect_to @auction, notice: 'Auction was successfully updated.' 
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /auctions/1
-  # DELETE /auctions/1.json
   def destroy
-    @auction.destroy
-    respond_to do |format|
-      format.html { redirect_to auctions_url, notice: 'Auction was successfully destroyed.' }
-      format.json { head :no_content }
+    if @auction.destroy
+      redirect_to auctions_url, notice: 'Auction was successfully destroyed.' 
+    else
+      redirect_to auctions_url, error: 'Auction could not be destroyed.'
     end
   end
 
