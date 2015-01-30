@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :user_ids
 
   resources :auctions
 
+=======
+>>>>>>> 6c91d9a19701d9a2721e049d0a3709a96c84ca6f
   devise_for :users
   root "pages#home"
   get "about" => "pages#about"
