@@ -1,29 +1,34 @@
+
 <h1>Listing auctions</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Title</th>
       <th>Description</th>
       <th>User</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @auctions.each do |auction| %>
       <tr>
+        <td><%= image_tag auction.image.url(:medium) %></td>
         <td><%= auction.title %></td>
         <td><%= auction.description %></td>
         <td><%= auction.user %></td>
         <td><%= link_to 'Show', auction %></td>
-        <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
-        <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if auction.user == current_user %>
+          <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
+          <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Auction', new_auction_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New auction', new_auction_path %>
+  <% end %>
