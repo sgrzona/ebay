@@ -27,9 +27,7 @@ ActiveRecord::Schema.define(version: 20150130191530) do
     t.integer  "string"
     t.datetime "created_at"
     t.datetime "updated_at"
-
-ActiveRecord::Schema.define(version: 20150128181341) do
-
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
