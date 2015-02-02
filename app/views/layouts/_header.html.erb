@@ -8,11 +8,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-<<<<<<< HEAD
+
       <a class="navbar-brand" href="/">My Ebayish</a>
-=======
-      <a class="navbar-brand" href="#">My Ebayish</a>
->>>>>>> 6c91d9a19701d9a2721e049d0a3709a96c84ca6f
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,10 +28,9 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li> 
           <% if user_signed_in? %>
-<<<<<<< HEAD
+
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-=======
->>>>>>> 6c91d9a19701d9a2721e049d0a3709a96c84ca6f
+
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign in", new_user_session_path %></li>

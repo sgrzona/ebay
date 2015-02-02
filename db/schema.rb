@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150130191530) do
 
   create_table "auctions", force: true do |t|
@@ -28,10 +27,9 @@ ActiveRecord::Schema.define(version: 20150130191530) do
     t.integer  "string"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-=======
+
 ActiveRecord::Schema.define(version: 20150128181341) do
->>>>>>> 6c91d9a19701d9a2721e049d0a3709a96c84ca6f
+
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
