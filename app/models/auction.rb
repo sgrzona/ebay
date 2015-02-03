@@ -8,7 +8,7 @@ class Auction < ActiveRecord::Base
 
   def set_expiration
     unless expires_at.present?
-      self.expires_at = 1.week.from.now
+      self.expires_at = 1.week
     end
 
     true

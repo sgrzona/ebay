@@ -1,15 +1,11 @@
-<div id="auctions">
-  <% @auctions.each do |auction| %>
-    <div class="box">
-      <%= image_tag auction.image.url(:medium) %>
-      <%= auction.description %>
-      <%= auction.user if user.auction %>
-      <%= link_to 'Show', auction_path(aution) %>
-      <% if auctions.user ==current_user %>
-        <%= link_to 'Edit', edit_auction_path(auction) %>
-        <%= link_to 'Destroy', auction, method: :delete, data: {confirm: 'Are you sure?'} %>
-      <% end %>
-     </div>
+<tr>
+  <td><%= image_tag auction.image.url(:medium) %></td>
+  <td><%= auction.title %></td>
+  <td><%= auction.description %></td>
+  <td><%= auction.user %></td>
+  <td><%= link_to 'Show', auction %></td>
+  <% if auction.user == current_user %>
+    <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
+    <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <% end %>
-</div>
-        
+</tr>

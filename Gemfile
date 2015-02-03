@@ -16,7 +16,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk', '~> 1.16.1'
 gem 'kaminari'
-gem 'masonry-rails'
+
 
 group :development, :test do
   gem 'sqlite3'
