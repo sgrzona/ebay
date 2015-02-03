@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <h3><%= link_to 'New auction', new_auction_path %></h3>
+<% end %>
+
+<table width='100%' border='0'>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render partial: "auction", collection: @auctions %>
+  </tbody>
+</table>

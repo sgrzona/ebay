@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   get 'users/index' => 'users#index', as: :users
   get 'users/show' => 'users#show', as: :user
 
-  resources :auctions
+  resources :auctions do
+    collection do
+      get :my
+    end
+  end
   
   devise_for :users
-  root "pages#home"
+  root "auctions#index"
   get "about" => "pages#about"
   get "my_profile" => "pages#profile"
   get "auctions" => "pages#auctions"

@@ -1,11 +1,15 @@
 class AuctionsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
 
   # GET /auctions
   def index
     @auctions = Auction.all
+  end
+
+  def my
+    @auctions = current_user.auctions.order("expires_at asc")
   end
 
   # GET /auctions/1
@@ -22,8 +26,7 @@ class AuctionsController < ApplicationController
   end
 
   # POST /auctions
-  def create
-    
+  def create  
     @auction = current_user.auctions.build(auction_params)
     if @auction.save
       redirect_to @auction, notice: 'Auction was successfully created.' 
@@ -56,12 +59,13 @@ class AuctionsController < ApplicationController
     end
 
     def correct_user
-      @auction = current_user.auctions.find_by(id: params[:id])
-      redirect_to auctions_path, notice: "Not authorized to edit this auction" if @auction.nil?
+      if @auction.user_id != current_user.id
+        redirect_to auctions_path, error: "Not authorized to edit this auction" 
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
-      params.require(:auction).permit(:title, :description, :user_id, :image)
+      params.require(:auction).permit(:title, :description, :user_id, :image, :expires_at)
     end
 end

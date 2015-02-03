@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+
 	private
 
 	# If your model is called User
@@ -19,5 +20,6 @@ class ApplicationController < ActionController::Base
 	  else
 	    last_url
 	  end
+
 	end
 end

@@ -1,0 +1,11 @@
+<tr>
+  <td><%= image_tag auction.image.url(:medium) %></td>
+  <td><%= auction.title %></td>
+  <td><%= auction.description %></td>
+  <td><%= auction.user %></td>
+  <td><%= link_to 'Show', auction %></td>
+  <% if auction.user == current_user %>
+    <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
+    <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</tr>
