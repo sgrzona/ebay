@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy, :my]
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 

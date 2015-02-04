@@ -11,11 +11,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
-gem 'devise', '~> 3.1.0.rc2'
+gem 'devise', '~> 3.2.0.rc2'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk', '~> 1.16.1'
 gem 'kaminari'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development, :test do
