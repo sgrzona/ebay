@@ -12,7 +12,7 @@ class AuctionsController < ApplicationController
     @auctions = current_user.auctions.order("expires_at asc")
   end
 
-  # GET /auctions/1
+   # GET /auctions/1
   def show
   end
 
@@ -41,6 +41,7 @@ class AuctionsController < ApplicationController
     else
       render action: 'edit'
     end
+
   end
 
   # DELETE /auctions/1

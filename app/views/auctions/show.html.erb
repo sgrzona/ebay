@@ -16,6 +16,11 @@
   <%= @auction.user %>
 </p>
 
+<p> 
+  <strong>End Time:</strong>
+    <%= @auction.expires_at_date %>  
+</p>
+
 <% if @auction.user == current_user %>
   <%= link_to 'Edit', edit_auction_path(@auction) %> 
 <% end %>

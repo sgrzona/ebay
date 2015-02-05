@@ -14,4 +14,17 @@ class Auction < ActiveRecord::Base
     true
   end
 
+  def starts_at_date
+    now = DateTime.now
+  end
+
+  def starts_at_time
+    now = DateTime.now
+  end
+
+  def expires_at_time
+  end
+
+  def expires_at_date
+  end
 end
