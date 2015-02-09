@@ -1,8 +1,8 @@
 class AuctionsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy, :my]
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
-
+  before_action :correct_user, only: [:edit, :update, :destroy ]
+  
   # GET /auctions
   def index
     @auctions = Auction
@@ -52,6 +52,7 @@ class AuctionsController < ApplicationController
       redirect_to auctions_url, error: 'Auction could not be destroyed.'
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
