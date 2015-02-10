@@ -17,6 +17,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk', '~> 1.16.1'
 gem 'kaminari'
 gem 'activeadmin', github: 'activeadmin'
+gem 'will_paginate', '~> 3.0.6'
 
 
 group :development, :test do
