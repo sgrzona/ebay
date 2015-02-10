@@ -4,8 +4,12 @@ class AuctionsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy ]
   
   # GET /auctions
+  
+ 
+
   def index
-    @auctions = Auction
+    @auctions = Auction.all
+   
   end
 
   def my

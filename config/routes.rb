@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   devise_for :users
-  root "auctions#index"
+  root "pages#home"
   get "about" => "pages#about"
   get "my_profile" => "pages#profile"
   get "auctions" => "pages#auctions"

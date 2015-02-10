@@ -1,10 +1,12 @@
 class Auction < ActiveRecord::Base
   belongs_to :user
+  has_many :bids
 
   before_save :set_expiration
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 
   def set_expiration
     unless expires_at.present?
@@ -14,12 +16,13 @@ class Auction < ActiveRecord::Base
     true
   end
 
+
   def starts_at_date
-    now = DateTime.now
+    DateTime.now
   end
 
   def starts_at_time
-    now = DateTime.now
+    DateTime.now
   end
 
   def expires_at_date

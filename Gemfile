@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+#ruby '2.1'
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.0'
+gem "paperclip", "~> 4.1"
+gem 'activeadmin', github: 'activeadmin'
+gem "formtastic"
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -9,16 +12,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+#gem 'spring',        group: :development
 gem 'bootstrap-sass'
-gem 'devise', '~> 3.2.0.rc2'
-gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'paperclip', github: 'thoughtbot/paperclip'
-gem 'aws-sdk', '~> 1.16.1'
+gem 'devise'
+gem 'bcrypt-ruby'
 gem 'kaminari'
-gem 'activeadmin', github: 'activeadmin'
-gem 'will_paginate', '~> 3.0.6'
-
 
 group :development, :test do
   gem 'sqlite3'
@@ -28,7 +26,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
 
 # Use unicorn as the app server
 # gem 'unicorn'
