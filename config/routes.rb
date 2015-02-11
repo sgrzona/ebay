@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :auctions do
     collection do
       get :my
+  resources :bids
     end
   end
+
+
   
   devise_for :users
   root "pages#home"

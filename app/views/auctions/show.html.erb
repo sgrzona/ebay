@@ -1,5 +1,5 @@
 
-<%= image_tag @auction.image.url(:medium) %>
+<%= image_tag @auction.image.url(:thunmb) %>
 
 <p>
   <strong>Title:</strong>
@@ -20,6 +20,12 @@
   <strong>End Time:</strong>
     <%= @auction.expires_at_date %>  
 </p>
+
+<p>
+  <strong>Highest Current Bid:</strong>
+</p>
+
+
 
 <% if @auction.user == current_user %>
   <%= link_to 'Edit', edit_auction_path(@auction) %> 

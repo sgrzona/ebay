@@ -1,0 +1,13 @@
+<% if @auction.highest_bid %>
+<h2><%= "Current highest bid is #{auction.highest_bid}" %></h2>
+<% end %>
+
+<%= form_for @bid, :url => auction_bids_path(@auction) do |f| %>
+
+  <div>
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+  </div>
+  <%= f.submit %>
+
+<% end %>
