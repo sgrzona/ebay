@@ -29,6 +29,7 @@ class AuctionBidController < ApplicationController
   		end
   	else
   		flash[:error] = "You cannot bid on your won auction."
+      redirect_to @auctions
   	end
   end
 
@@ -41,5 +42,4 @@ class AuctionBidController < ApplicationController
   def not_users_own_auction?
   	@bid.auction.seller != current_user
   end
-end
 end

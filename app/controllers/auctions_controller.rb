@@ -5,8 +5,6 @@ class AuctionsController < ApplicationController
   
   # GET /auctions
   
- 
-
   def index
     @auctions = Auction.all
    
