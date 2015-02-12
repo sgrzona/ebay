@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :auctions
+  validates_uniqueness_of :name, :message => "There is already a user with that name."
 
   def to_s
   	email
