@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'bcrypt-ruby'
 gem 'kaminari'
+gem 'google_currency', '~> 3.1.0'
 
 group :development, :test do
   gem 'sqlite3'
