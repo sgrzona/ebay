@@ -38,17 +38,19 @@ class Auction < ActiveRecord::Base
   def self.get_active_auctions
   end
 
+  def bid
+  end
+
   def amount
   end
 
-  def minimum_bid
-  end
 
   def highest_bid
+    self.bids.maximum("amount")
   end
 
   def highest_bid_object
-   self.highest_bid_object.bidder if highest_bid_object
+   self.bids.order(:amount => :desc).limit(1).first
   end
 
   def highest_bidder

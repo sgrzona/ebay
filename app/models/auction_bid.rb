@@ -7,6 +7,8 @@ before_save :convert_bid_to_cents
   validate :higher_than_current?
   validates :amount, :numericality => true
 
+ 
+
   def convert_bid_to_cents
     self.amount = (self.amount*100).to_i
   end
