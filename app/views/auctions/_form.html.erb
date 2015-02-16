@@ -37,17 +37,11 @@
   <%= f.text_field :expires_at_time, order: [:hour, :min, :sec] %>
   </div>
 
-
+ 
   <div class="form-group">
-    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-    <div class="input-group">
-      <div class="input-group-addon">$</div>
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-      <div class="input-group-addon">.00</div>
-    </div>
+    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
   </div>
-</form>
-  
+
 
   <div class="actions">
     <%= f.submit class: "btn-btn-primary"%>

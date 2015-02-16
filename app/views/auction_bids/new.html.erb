@@ -1,0 +1,7 @@
+<h1>New Auction Bid</h1>
+
+<% if @auction.highest_auction_bid %>
+  <h4><%= "Current highest bid is #{@auction.highest_auction_bid}" %></h4>
+<% end %>
+
+<%= render partial: "form" %>

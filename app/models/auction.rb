@@ -1,6 +1,6 @@
 class Auction < ActiveRecord::Base
   belongs_to :user
-  has_many :bids
+  has_many :auction_bids
   before_save :set_expiration
 
   validates :title, :uniqueness => true
@@ -36,25 +36,14 @@ class Auction < ActiveRecord::Base
   end
 
   def self.get_active_auctions
-  end
-
-  def bid
+    where("expires_at_date > ?", DateTime.now)
   end
 
   def amount
   end
 
 
-  def highest_bid
-    self.bids.maximum("amount")
-  end
-
-  def highest_bid_object
-   self.bids.order(:amount => :desc).limit(1).first
-  end
-
-  def highest_bidder
-    self.highest_bid_object.bidder if highest_bid_object
+  def highest_auction_bid
+    self.auction_bids.maximum("bid")
   end
 end
-

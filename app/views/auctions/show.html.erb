@@ -1,6 +1,7 @@
 
-
-<%= image_tag @auction.image.url(:thunmb) %>
+<p>
+<%= image_tag @auction.image.url(:thumb) %>
+</p>
 
 <p>
   <strong>Title:</strong>
@@ -24,13 +25,13 @@
 
 <p>
   <strong>Highest Current Bid:</strong>
+
 </p>
 
-<p> 
-  <strong>Place Bid:</strong>
-   </p>
+<p><%= link_to "Bid on this auction", new_auction_auction_bid_path(@auction)  %></p>
 
 <% if @auction.user == current_user %>
   <%= link_to 'Edit', edit_auction_path(@auction) %> 
-<% end %>
+  <% end %>
 <%= link_to 'Back', auctions_path %>
+

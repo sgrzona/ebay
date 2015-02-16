@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :auctions do
     collection do
       get :my
-  resources :bids
     end
+    resources :auction_bids
   end
 
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "about" => "pages#about"
   get "my_profile" => "pages#profile"
   get "auctions" => "pages#auctions"
+ 
 
   #get "auctions" => "auctions#index", as: :user
 

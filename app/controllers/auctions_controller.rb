@@ -12,10 +12,12 @@ class AuctionsController < ApplicationController
 
   def my
     @auctions = current_user.auctions.order("expires_at asc")
+ 
   end
 
    # GET /auctions/1
   def show
+    @auction = Auction.find(params[:id])
   end
 
   # GET /auctions/new

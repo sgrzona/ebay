@@ -1,0 +1,13 @@
+<%= render partial: "shared/error_messages", locals: { record: @auction_bid } %>
+<br/>
+
+<%= form_for [@auction,@auction_bid] do |f| %>
+
+  <div class='row'>
+    <div class='col-lg-1'><%= f.label :bid %></div>
+    <div class='col-lg-4'><%= f.text_field :bid, placeholder: "Enter your bid amount" %></div>
+  </div>
+  <br/>
+  <%= f.submit %>
+
+<% end %>
