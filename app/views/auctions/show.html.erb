@@ -1,3 +1,5 @@
+<h4><%= link_to 'Back', auctions_path %></h4>
+
 
 <p>
 <%= image_tag @auction.image.url(:thumb) %>
@@ -13,8 +15,7 @@
   <%= @auction.description %>
 </p>
 
-<p>
-  <strong>User:</strong>
+<p>  <strong>User:</strong>
   <%= @auction.user %>
 </p>
 
@@ -27,10 +28,9 @@
   <strong>Highest Current Bid:</strong>
   <%= @auction.highest_auction_bid %>
 
-<p><%= link_to "Bid on this auction", new_auction_auction_bid_path(@auction)  %></p>
+  <p><h4><%= link_to "Bid on this auction", new_auction_auction_bid_path(@auction) %></h4></p>
 
 <% if @auction.user == current_user %>
   <%= link_to 'Edit', edit_auction_path(@auction) %> 
   <% end %>
-<%= link_to 'Back', auctions_path %>
 

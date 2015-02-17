@@ -1,3 +1,4 @@
+
 <% if user_signed_in? %>
   <h3><%= link_to 'New auction', new_auction_path %></h3>
 <% end %>
@@ -5,13 +6,10 @@
 <table >
   <thead>
     <tr>
-      <th>Image</th>
       <th>Title</th>
       <th>Description</th>
-      <th>User</th>
       <th>End Date</th>
       <th>Current Highest Bid</th>
-      <th>Place Bid</th>
     </tr>
   </thead>
 
@@ -19,3 +17,5 @@
     <%= render partial: "auction", collection: @auctions %>
   </tbody>
 </table>
+
+

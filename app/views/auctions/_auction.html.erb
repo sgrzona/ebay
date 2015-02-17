@@ -1,16 +1,15 @@
 
-<table class="table table-striped"
+<table>
 <thead>
-    <tr>
-  <td><%= image_tag auction.image.url(:thumb) %></td>
+  <tr>
+      <%= link_to auction do %>
+      <%= image_tag auction.image.url(:thumb) %>
+    <% end %>
   <td><%= auction.title %></td></center>
   <td><%= auction.description %></td>
-  <td><%= auction.user %></td></center>
   <td><%= auction.expires_at_date %></td>
   <td><%= auction.highest_auction_bid %></td>
 
-  <td><%= link_to 'Place Bid', new_auction_auction_bid_path(auction)  %></td>
-  <td><%= link_to 'Show', auction %></td>
   <% if auction.user == current_user %>
     <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
     <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
