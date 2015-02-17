@@ -7,6 +7,8 @@
   <td><%= auction.description %></td>
   <td><%= auction.user %></td></center>
   <td><%= auction.expires_at_date %></td>
+  <td><%= auction.highest_auction_bid %></td>
+
   <td><%= link_to 'Place Bid', new_auction_auction_bid_path(auction)  %></td>
   <td><%= link_to 'Show', auction %></td>
   <% if auction.user == current_user %>

@@ -47,3 +47,4 @@ class Auction < ActiveRecord::Base
     self.auction_bids.maximum("bid")
   end
 end
+

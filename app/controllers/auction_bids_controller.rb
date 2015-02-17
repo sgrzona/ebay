@@ -20,7 +20,7 @@ class AuctionBidsController < ApplicationController
     @auction = Auction.find(params[:auction_id])
     @auction_bid = @auction.auction_bids.new(auction_bid_params)
     @auction_bid.user = current_user
-    
+
     Rails.logger.info "\n\n*** #{@auction_bid.inspect}\n"
 
     if not_users_own_auction?
@@ -42,9 +42,9 @@ class AuctionBidsController < ApplicationController
   def update
 
   end
-  
+
   def destroy
- 
+
   end
 
   private

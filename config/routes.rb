@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   get 'users/index' => 'users#index', as: :users
   get 'users/show' => 'users#show', as: :user
-
-  resources :auctions do
+    resources :auctions do
     collection do
       get :my
     end
     resources :auction_bids
+    get 'auction_bids/highest_auction_bid' => 'auction_bids#highest_aution_bid'
   end
 
 
-  
+
   devise_for :users
   root "pages#home"
   get "about" => "pages#about"
