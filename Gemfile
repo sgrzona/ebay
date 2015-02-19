@@ -21,6 +21,7 @@ gem 'google_currency', '~> 3.1.0'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'pry'
 end
 
 group :production do

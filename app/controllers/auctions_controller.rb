@@ -2,17 +2,17 @@ class AuctionsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy, :my]
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy ]
-  
+
   # GET /auctions
-  
+
   def index
     @auctions = Auction.all
-   
+
   end
 
   def my
     @auctions = current_user.auctions.order("expires_at asc")
- 
+
   end
 
    # GET /auctions/1

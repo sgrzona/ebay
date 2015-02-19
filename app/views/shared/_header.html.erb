@@ -20,14 +20,13 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li> 
         <li><%= link_to "Current Auctions", auctions_path %></li>
-        <li><%= link_to "Link", '#' %></li> 
         </li>
       </ul>
          <!-- nav bar righr -->
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "My Auctions", my_auctions_path %></li>
-        <li><%= link_to "My Profile", my_profile_path %></li> 
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <li><%= link_to "My Profile", my_user_profile_path(current_user) %></li> 
 
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
 

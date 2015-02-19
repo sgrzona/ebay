@@ -23,15 +23,7 @@ class Auction < ActiveRecord::Base
     DateTime.now
   end
 
-  def starts_at_time
-    DateTime.now
-  end
-
   def expires_at_date
-    DateTime.now + 7
-  end
-
-  def expires_at_time
     DateTime.now + 7
   end
 
