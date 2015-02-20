@@ -1,11 +1,13 @@
 class Profile < ActiveRecord::Base
-  
-  # validates :first_name, presence: true
-  # validates :last_name, presence: true
-  # validates :blurb, presence: true
-  belongs_to :user
+ belongs_to :user
+ has_one :profile
 
-  # Paperclip
-  has_attached_file :photo, :styles => { :medium => "400x400>", :thumb => "50x50>", :regular => "200x200>" }
-  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
+   validates :first_name, presence: true
+   validates :last_name, presence: true
+   validates :blurb, presence: true
+  
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 end
