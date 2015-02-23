@@ -12,17 +12,18 @@ Rails.application.routes.draw do
     end
 
   devise_for :users
-
   resources :users, only: [:show] do
     resource :profile do
-      get 'my'
+    get :my
     end
+    resource :profile
+    get 'profile/blurb' => 'profiles#blurb'
   end
 
   root "pages#home"
   get "about" => "pages#about"
   get "auctions" => "pages#auctions"
-
+ 
 
   #get "auctions" => "auctions#index", as: :user
 

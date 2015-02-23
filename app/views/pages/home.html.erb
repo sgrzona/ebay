@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <h1>Welcome</h1>
-  
+
+  <%= link_to "Create Profile", new_user_profile_path(current_user) %>
          <% if user_signed_in? %>
 
          <% else %>
