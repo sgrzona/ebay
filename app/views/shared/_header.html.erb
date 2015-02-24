@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href"new_user_session_path"=>My Ebayish</a>
+      <a class="navbar-brand" href"root_path"=>My Ebayish</a>
 
     </div>
 
@@ -17,31 +17,21 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li> 
-        <li><%= link_to "Current Auctions", auctions_path %></li>
-        </li>
-      </ul>
-         <!-- nav bar righr -->
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "My Auctions", my_auctions_path %></li>
-        <% if user_signed_in? %>
+         <% if user_signed_in? %>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "About", about_path %></li> 
+          <li><%= link_to "Current Auctions", auctions_path %></li>
+          <li><%= link_to "My Auctions", my_auctions_path %></li>
           <li><%= link_to "My Profile", my_user_profile_path(current_user)%></li> 
-
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
         </ul>
-    </div><!-- /.navbar-collapse -->
 
 
     </div><!-- /.container-fluid -->
       <form class="form-horizontal">
       <div class="form-group form-group-lg">
-        
         <div class="container">
         <div class="col-lg-10">
         <div class="input-group">

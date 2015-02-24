@@ -13,14 +13,4 @@ class User < ActiveRecord::Base
   def to_s
   	email
   end
-
-
-  def blurb
-  end
-
-  def first_name
-  end
-
-  def last_name
-  end
 end

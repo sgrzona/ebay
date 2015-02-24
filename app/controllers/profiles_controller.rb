@@ -1,3 +1,4 @@
+
 class ProfilesController < ApplicationController
  
 
@@ -10,11 +11,12 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    @user = User.find(current_user)
     @profile = Profile.new(profile_params)
     if @profile.save
       redirect_to my_user_profile_path
     else
-      render new_user_profile_path
+      render new
     end
   end
 
