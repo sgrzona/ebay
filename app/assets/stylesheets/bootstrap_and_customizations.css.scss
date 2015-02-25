@@ -26,6 +26,7 @@ $jumbotron-bg:                 #bdc3c7;
   margin-right: auto;
 }
 
+
 // Usage as mixins
 .element {
   .center-block{};
@@ -53,8 +54,21 @@ th, td {
   width: 33%; 
 }
 
+//Carousel
+
 .carousel {
   padding-bottom: 20px;
+  width: 100%;
+  float: left;
+  height: 100%;
 }
 
+.carousel {
+  max-height: 300px;
+  overflow: hidden;
 
+  .item img {
+    width: 100%;
+    height: 300px;
+  }
+}

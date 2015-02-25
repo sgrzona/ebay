@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: ed1fbca8c64af827616c58f274d7be256ca513b6
+  revision: a0bf8da21b7a6f37e1ad28790187e0244a0d5466
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -57,7 +57,7 @@ GEM
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.0)
-    autoprefixer-rails (5.1.5)
+    autoprefixer-rails (5.1.7)
       execjs
       json
     bcrypt (3.1.10)
@@ -81,7 +81,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.0)
+    coffee-script-source (1.9.1)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -108,7 +108,7 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 5)
       responders
-    jbuilder (2.2.7)
+    jbuilder (2.2.8)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.3)
