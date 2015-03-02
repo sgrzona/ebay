@@ -2,16 +2,6 @@
 <div class="container-fluid">
   <h1>Welcome</h1>
 
+  <%= render partial: "carousel" %>
 
-<%= render partial: "carousel" %>
-  <% if user_signed_in? %>
-
-
-
-  <% else %>
-        <p>
-         <%= link_to "Log in", new_user_session_path, class: "btn btn-default" %>
-         <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
-        </p>
-  <% end %>
- </div>
+ 

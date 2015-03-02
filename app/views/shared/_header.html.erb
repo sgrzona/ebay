@@ -22,10 +22,14 @@
           <li><%= link_to "About", about_path %></li> 
           <li><%= link_to "Current Auctions", auctions_path %></li>
           <li><%= link_to "My Auctions", my_auctions_path %></li>
-          <li><%= link_to "My Profile", my_user_profile_path(current_user)%></li> 
-          <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+          <li><%= link_to "My Profile", edit_user_profile_path(current_user)%></li> 
+          <li><%= link_to "Account Settings",edit_user_registration_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% end %>
+
         </ul>
 
 
