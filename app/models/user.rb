@@ -8,9 +8,10 @@ class User < ActiveRecord::Base
   has_many :auctions
   has_many :bids
   has_one :profile
-  validates_uniqueness_of :name, :message => "There is already a user with that name."
+  validates_uniqueness_of :username, :message => "There is already a user with that name."
 
   def to_s
   	email
   end
+
 end
