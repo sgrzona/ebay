@@ -1,4 +1,4 @@
-<%= form_for @profile, url: user_profile_path(current_user) do |p| %>
+<%= form_for @profile, url: user_profile_path(current_user, @profile) do |p| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
