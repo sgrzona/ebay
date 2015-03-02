@@ -1,17 +1,7 @@
+<%= render partial: "shared/error_messages", locals: { record: @auction_bid } %>
 <%= form_for @auction, html: { multipart: true } do |f| %>
-  <% if @auction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
 
-      <ul>
-      <% @auction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <div class="form-group">
+    <div class="form-group">
     <%= f.label :image %>
     <%= f.file_field :image, class: "form-control" %>
   </div>
