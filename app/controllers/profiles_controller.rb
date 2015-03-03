@@ -1,14 +1,5 @@
 class ProfilesController < ApplicationController
 
-  def my
-    @profile = nil
-    if current_user.profile
-      @profile = current_user.profile
-    else
-      redirect_to new_user_profile_path(current_user)
-    end
-  end
-
   def new
     @profile = current_user.build_profile
   end
@@ -19,31 +10,37 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to my_user_profile_path
     else
-      render new
+      render "new"
     end
   end
 
   def show
+    @user = User.find(params[:user_id])
+    @profile = (@user and @user.profile ? @user.profile : nil)
   end
 
   def edit
-    @profile = Profile.find(current_user)
+    if current_user.profile.present?
+      @profile = current_user.profile
+    else
+     flash[:error] = "No profile exists for current user"
+     redirect_to new_user_profile_path
+    end
   end
 
   def update
-    @profile = Profile.find(current_user.profile.id)
+    @profile = current_user.profile
     if @profile.update_attributes(profile_params)
       flash[:success] = "Profile Updated"
       redirect_to current_user
     else
-      flash.now[:error] = "Something went wrong" 
-      render edit_user_profile_path
+      render "edit"
     end
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :blurb, :image, :user_id)
+    params.require(:profile).permit(:first_name, :last_name, :blurb, :user_id)
   end
 end
