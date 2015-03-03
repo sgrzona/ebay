@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :bids
   has_one :profile
   validates_uniqueness_of :email, :message => "There is already a user with that email."
-
+  validates_length_of :password, :minimum => 4, :allow_blank => true
+  validates_confirmation_of :password
   def to_s
   	email
   end
