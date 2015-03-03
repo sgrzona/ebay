@@ -1,16 +1,23 @@
-<h1>My Profile</h1>
+<% if @profile %>
 
-<h4><%= link_to 'Home', root_path %></h4>
-
-
-<p>
-  <strong>Name:</strong>
-    <%= @profile.first_name %>
-    <%= @profile.last_name %>
-</p>
+  <% if current_user and @user and current_user.id == @user.id %>
+    <h1>My Profile</h1>
+  <% else %>
+    <h1><%= @profile %>'s Profile</h1>
+  <% end %>
 
 
-<p> 
-  <strong>About Me:</strong>
-    <%= @profile.blurb %>
-</p>
+  <p>
+    <strong>Name:</strong>
+      <%= @profile.first_name %>
+      <%= @profile.last_name %>
+  </p>
+
+
+  <p> 
+    <strong>About Me:</strong>
+      <%= @profile.blurb %>
+      </p>
+<% else %>
+  <h1>This user has not created a profile.</h1>
+<% end %>
