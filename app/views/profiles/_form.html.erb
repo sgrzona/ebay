@@ -2,6 +2,11 @@
 <%= form_for @profile, url: user_profile_path(current_user, @profile) do |p| %>
 
      <div class="form-group">
+       <%= p.label :username %>
+       <%= p.text_field :username , class: "form-control"%>
+     </div>
+  
+     <div class="form-group">
        <%= p.label :first_name %>
        <%= p.text_field :first_name, :class => "form-control" %>
 
@@ -9,7 +14,6 @@
        <%= p.label :last_name %>
        <%= p.text_field :last_name, :class => "form-control" %>
      </div>
-
 
       <div class="form-group">
         <%= p.label :blurb %>
