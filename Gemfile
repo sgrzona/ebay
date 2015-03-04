@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'sqlite3'
 gem 'rails', '4.2.0'
-gem "paperclip", "~> 4.1"
+gem "paperclip", '~> 4.2.1'
 gem 'activeadmin', github: 'activeadmin'
 gem "formtastic"
 gem 'sass-rails', '~> 4.0.3'

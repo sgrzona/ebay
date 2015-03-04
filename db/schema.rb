@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303185427) do
+ActiveRecord::Schema.define(version: 20150303211240) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -72,17 +72,8 @@ ActiveRecord::Schema.define(version: 20150303185427) do
 
   add_index "auctions", ["user_id"], name: "index_auctions_on_user_id"
 
-  create_table "profiles", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "blurb"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "username"
-  end
-
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+# Could not dump table "profiles" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "user_ids", force: :cascade do |t|
     t.integer  "string"

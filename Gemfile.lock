@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 607054214d4eaba5b59e2eab736c6a41edfc7795
+  revision: 8bd8ff07d73806e8c5dba0abeb112936de135748
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -108,7 +108,7 @@ GEM
       has_scope (~> 0.6.0.rc)
       railties (>= 3.2, < 5)
       responders
-    jbuilder (2.2.8)
+    jbuilder (2.2.9)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.3)
@@ -237,7 +237,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  paperclip (~> 4.1)
+  paperclip (~> 4.2.1)
   pg
   pry
   rails (= 4.2.0)
