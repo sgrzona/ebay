@@ -1,4 +1,4 @@
-<%= render partial: "shared/error_messages", locals: { record: @auction_bid } %>
+<%= render partial: "shared/error_messages", locals: { record: @auction } %>
 <%= form_for @auction, html: { multipart: true } do |f| %>
 
     <div class="form-group">
@@ -36,3 +36,4 @@
   </div>
 
 <% end %>
+
