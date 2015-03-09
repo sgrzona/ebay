@@ -6,6 +6,7 @@ class Auction < ActiveRecord::Base
   validates :title, :uniqueness => true
   
 
+
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
@@ -20,11 +21,9 @@ class Auction < ActiveRecord::Base
 
 
   def starts_at_date
-    DateTime.now
   end
 
   def expires_at_date
-    DateTime.now + 7
   end
 
   def self.get_active_auctions
