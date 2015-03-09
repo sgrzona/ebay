@@ -19,7 +19,7 @@ gem 'devise'
 gem 'bcrypt-ruby'
 gem 'kaminari'
 gem 'google_currency', '~> 3.1.0'
-
+gem 'bootstrap-datepicker-rails'
 
 
 

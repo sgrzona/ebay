@@ -16,18 +16,29 @@
   </div>
 
   <div class="form-group">
-  <%= f.label :start_date %>
-  <%= f.date_select :starts_at_date, order: [:month, :day, :year] %>
+    <%= f.label :start_date %>
+    <input type="text" class='datepicker' placeholder="Click to Select Start Date" >
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+ </script> 
   </div>
 
   <div class="form-group">
-  <%= f.label :end_date %>
-  <%= f.date_select :expires_at_date, order: [:month, :day, :year] %>
+    <%= f.label :end_date %>
+  <input type="text" class='datepicker' placeholder="Click to Select End Date">
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+ </script> 
   </div>
 
- 
+
   <div class="form-group">
-    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+  <%= f.label :starting_amount %>
+  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
   </div>
 
 

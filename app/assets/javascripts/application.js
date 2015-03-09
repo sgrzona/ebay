@@ -14,8 +14,13 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require bootstrap-datepicker
 //= require_tree .
 
-
+ $(document).on "focus", "[data-behaviour~='datepicker']", (e) ->
+ - $(this).datepicker
+ - format: "dd-mm-yyyy"
+ - weekStart: 1
+ - autoclose: true
 
 
