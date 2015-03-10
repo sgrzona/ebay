@@ -15,36 +15,23 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :start_date %>
-    <input type="text" class='datepicker' placeholder="Click to Select Start Date" >
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
- </script> 
-  </div>
-
-  <div class="form-group">
-    <%= f.label :end_date %>
-  <input type="text" class='datepicker' placeholder="Click to Select End Date">
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
- </script> 
-  </div>
-
-
-  <div class="form-group">
-  <%= f.label :starting_amount %>
-  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-  </div>
-
+  <% if params[:action] == "new" or params[:action] == "create" %>
+    <div class="form-group">
+      <%= f.label :expires_at %>
+      <%= f.select :expires_at, {'7 days' => 7.days.from_now, 'Two weeks' => 14.days.from_now, 'One month' => 1.month.from_now }, class: "form-control", prompt: "Select auction length" %>
+    </div>
+  <% else %>
+    <%= f.hidden_field :expires_at, value: @auction.expires_at %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit class: "btn-btn-primary"%>
   </div>
 
-<% end %>
+  
+<script type="text/javascript">
+  //$('.datepicker').datepicker()
+</script>
+
+  <% end %>
 

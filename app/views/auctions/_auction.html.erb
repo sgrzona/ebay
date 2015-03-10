@@ -6,7 +6,7 @@
     <% end %>
   <td><%= auction.title %></td></center>
   <td><%= auction.description %></td>
-  <td><%= auction.expires_at_date %></td>
+  <td><%= auction.expires_at.present? ? auction.expires_at.strftime("%m/%d/%Y %l:%M %P") : "Not set" %></td>
   <td><%= auction.highest_auction_bid %></td>
 
   

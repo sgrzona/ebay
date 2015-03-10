@@ -20,7 +20,7 @@
 
 <p>
   <strong>End Time:</strong>
-    <%= @auction.expires_at_date %>
+    <%= @auction.expires_at.strftime("%m/%d/%Y %l:%M %p") %>
 </p>
 
 <p>
