@@ -3,7 +3,7 @@ class Auction < ActiveRecord::Base
   has_many :auction_bids
   before_save :set_expiration
 
-  validates :title, :uniqueness => true
+  validates :title, :presence => true
   before_create :set_expiration 
   
   
@@ -19,7 +19,7 @@ class Auction < ActiveRecord::Base
     true
   end
 
-  def self.get_active_auctions
+  def active_auctions
     where("expires_at > ?", Time.now)
   end
 
