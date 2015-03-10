@@ -15,7 +15,7 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
 
-  <% if params[:action] == "new" or params[:action] == "create" %>
+  <% if params[:action] == "new" or params[:action] == "create" or params[:action] == "edit" %>
     <div class="form-group">
       <%= f.label :expires_at %>
       <%= f.select :expires_at, {'7 days' => 7.days.from_now, 'Two weeks' => 14.days.from_now, 'One month' => 1.month.from_now }, class: "form-control", prompt: "Select auction length" %>
