@@ -4,35 +4,24 @@ class Auction < ActiveRecord::Base
   before_save :set_expiration
 
   validates :title, :uniqueness => true
+  before_create :set_expiration 
   
-
-
+  
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 
   def set_expiration
     unless expires_at.present?
-      self.expires_at = 1.week
+      self.expires_at = 1.week.from_now
     end
 
     true
   end
 
-
-  def starts_at_date
-  end
-
-  def expires_at_date
-  end
-
   def self.get_active_auctions
-    where("expires_at_date > ?", DateTime.now)
+    where("expires_at > ?", Time.now)
   end
-
-  def amount
-  end
-
 
   def highest_auction_bid
     self.auction_bids.maximum("bid")
