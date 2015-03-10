@@ -6,7 +6,7 @@
   <% if bid.user %>
     <div>
       <%= bid.user.name %>'s bid
-      <%= number_to_currency(bid.bid/100) %> at 
+      <%= number_to_currency(@auctions.bid)%> at 
       <%= bid.created_at.strftime("%a, %B %e, %Y - %l:%m:%M %p") %>
     </div>
   <% end %>

@@ -9,6 +9,7 @@ class AuctionBid < ActiveRecord::Base
 
 
 
+
   def higher_than_current?
     if !AuctionBid.where("bid > ? AND auction_id = ?", bid, self.auction.id).empty?
       errors.add(:bid, "is too low! It can't be lower than the current bid, sorry.")
