@@ -17,10 +17,9 @@
 //= require bootstrap-datepicker
 //= require_tree .
 
- $(document).on "focus", "[data-behaviour~='datepicker']", (e) ->
- - $(this).datepicker
- - format: "dd-mm-yyyy"
- - weekStart: 1
- - autoclose: true
+$(function() {
+  //$("#starts_at_date").datepicker({dateFormat: 'dd-mm-yyyy'});
+  //$("#expires_at_date").datepicker({dateFormat: 'dd-mm-yyyy'});
+});
 
 
