@@ -1,0 +1,21 @@
+<table>
+<thead>
+  <tr>
+    <td><%= link_to auction do %>
+      <%= image_tag auction.image.url(:thumb) %></td>
+    <% end %>
+  <td><%= auction.title %></td></center>
+  <td><%= auction.description %></td>
+  <td><%= auction.expires_at_date %></td>
+  <td><%= auction.highest_auction_bid %></td>
+
+  
+  <% if auction.user == current_user %>
+    <%= link_to 'Edit', edit_auction_path(auction) %>
+    <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+
+</tr>
+</thead>
+</table>
