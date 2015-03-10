@@ -1,4 +1,5 @@
 class AuctionBid < ActiveRecord::Base
+  require "date"
   belongs_to :auction
   belongs_to :user
 
