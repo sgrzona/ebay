@@ -13,6 +13,7 @@ class Auction < ActiveRecord::Base
 
   def unactive_auctions
     where("expires_at < ?", Time.now)
+  end
 
   def active_auctions
     where("expires_at > ?", Time.now)
@@ -22,4 +23,3 @@ class Auction < ActiveRecord::Base
     self.auction_bids.maximum("bid")
   end
 end
-
