@@ -11,13 +11,8 @@ class Auction < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 
-  def set_expiration
-    unless expires_at.present?
-      self.expires_at = 1.week.from_now
-    end
-
-    true
-  end
+  def unactive_auctions
+    where("expires_at < ?", Time.now)
 
   def active_auctions
     where("expires_at > ?", Time.now)
