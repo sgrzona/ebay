@@ -2,11 +2,11 @@
 <h2><%= link_to @auction.title, @auction %></h2>
 <p><%= @auction.description %></p>
 
-<% @auction_bids.each do |bid| %>
-  <% if bid.user %>
+<% @auction_bid.each do |bid| %>
+  <% if auction_bid.user %>
     <div>
-      <%= bid.user.name %>'s bid
-      <%= number_to_currency(@auctions.bid, separator: ",", delimiter: "", precision: 2) %> at
+      <%= auction_bid.user %>'s bid
+      <%= number_to_currency(auction_bids.bid, :precision 2) %> at
       <%= bid.created_at.strftime("%a, %B %e, %Y - %l:%m:%M %p") %>
     </div>
   <% end %>
