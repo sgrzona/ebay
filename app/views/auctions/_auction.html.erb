@@ -10,12 +10,6 @@
   <td><%= auction.highest_auction_bid %></td>
 
   
-  <% if auction.user == current_user %>
-    <%= link_to 'Edit', edit_auction_path(auction) %>
-    <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-
-
 </tr>
 </thead>
 </table>
