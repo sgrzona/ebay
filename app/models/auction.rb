@@ -1,18 +1,23 @@
 class Auction < ActiveRecord::Base
   belongs_to :user
   has_many :auction_bids
+  before_create :set_expiration 
   before_save :set_expiration
 
   validates :title, :presence => true
-  before_create :set_expiration 
+  
   
   
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 
-  def unactive_auctions
-    where("expires_at < ?", Time.now)
+  def set_expiration
+    unless expires_at.present?
+     self.expires_at = 1.week.from_now
+  end
+
+    true
   end
 
   def active_auctions
