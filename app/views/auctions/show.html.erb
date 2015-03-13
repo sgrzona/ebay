@@ -28,9 +28,11 @@
   <%= @auction.highest_auction_bid %>
 
 
- <% if @auctions = current_user.auctions %>
+ <% if @auction.user_id == current_user.id %>
     <h4><%= link_to 'Edit', edit_auction_path(@auction) %></h4>
     <h4><%= link_to 'Destroy', auction_path, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
-  <% else %>
+ <% end %>
+
+  <% if @auction.user_id != current_user.id %>
     <h4><%= link_to "Bid on this auction", new_auction_auction_bid_path(@auction) %></h4>
-<% end %>
+ <% end %>
