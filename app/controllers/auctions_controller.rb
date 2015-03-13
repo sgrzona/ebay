@@ -27,7 +27,7 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/1/edit
   def edit
-      @auction = current_user.auction
+      @auction = current_user.edit
   end
 
   # POST /auctions
@@ -65,7 +65,11 @@ class AuctionsController < ApplicationController
       @auction = Auction.find(params[:id])
     end
 
-
+  def correct_user
+      if @auction.user_id != current_user.id
+        redirect_to auctions_path, error: "Not authorized to edit this auction" 
+      end
+  end
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
       params.require(:auction).permit(:title, :description, :user_id, :image, :expires_at)
