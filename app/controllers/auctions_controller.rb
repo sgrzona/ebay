@@ -65,11 +65,6 @@ class AuctionsController < ApplicationController
       @auction = Auction.find(params[:id])
     end
 
-    def correct_user
-      if @auction.user_id != current_user.id
-        redirect_to auctions_path, error: "Not authorized to edit this auction" 
-      end
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
