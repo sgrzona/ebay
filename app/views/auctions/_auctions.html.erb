@@ -1,6 +1,8 @@
 
 <% if user_signed_in? %>
-  <h3><%= link_to 'New auction', new_auction_path %></h3>
+  <%= link_to new_auction_path do %>
+  <h3><span class="glyphicon glyphicon-plus"></span> New Auction </h3>
+<% end %>
 <% end %>
 
 <div id="auctions" class="transitions-enabled">
