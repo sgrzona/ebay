@@ -11,48 +11,15 @@ $jumbotron-bg:                 #bdc3c7;
 
 @import 'bootstrap';
 
-.center {
-  text-align: center;
-}
-
-.navbar-brand {
-  font-weight: bold;
-}
-
-// Classes
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 
 // Usage as mixins
-.element {
-  .center-block{};
-
-}
 
 .checkbox input[type="checkbox"] {
   margin-left: 0;
 }
 
-//Tables
 
-table {
-    border-spacing: 5px;
-    table-layout: fixed;
-}
-
-th {
-  font-weight: bold;
-  text-align: right;
-}
-th, td {
-  vertical-align: justify;
-  padding: 10px;
-  width: 33%; 
-}
 
 //Carousel
 
