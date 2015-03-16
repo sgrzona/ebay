@@ -3,3 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
 
+$ ->
+  $('#auctions').imagesLoaded ->
+    $('#auctions').masonry
+      itemSelector: '.box'
+      isFitWidth: true
