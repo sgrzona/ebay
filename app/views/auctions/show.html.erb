@@ -29,10 +29,17 @@
 
 
  <% if @auction.user_id == current_user.id %>
-    <h4><%= link_to 'Edit', edit_auction_path(@auction) %></h4>
-    <h4><%= link_to 'Destroy', auction_path, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+
+    <%= link_to edit_auction_path(@auction) do %>
+    <h4><span class="glyphicon glyphicon-pencil"></span> Edit</h4>
+    <% end %>
+
+
+    <%= link_to auction_path, method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <h4><span class="glyphicon glyphicon-erase"></span> Delete</h4>
  <% end %>
 
   <% if @auction.user_id != current_user.id %>
     <h4><%= link_to "Bid on this auction", new_auction_auction_bid_path(@auction) %></h4>
+ <% end %>
  <% end %>
