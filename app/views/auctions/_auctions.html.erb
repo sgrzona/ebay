@@ -3,17 +3,18 @@
   <h3><%= link_to 'New auction', new_auction_path %></h3>
 <% end %>
 
-<table >
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>End Date</th>
-      <th>Current Highest Bid</th>
-    </tr>
-  </thead>
+<div id="auctions" class="transitions-enabled">
+  <% @auctions.each do |auction| %>
+    <div class="box panel panel-default">
+       <%= link_to image_tag(auction.image.url(:medium)), auction %>
+         <div class="panel-body">
+           <%= auction.title %>
+           <%= auction.description %>
+           <%= auction.user %>
+           <%= auction.expires_at %>
+           <%= auction.highest_auction_bid %>
+         </div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <%= render partial: "auction", collection: @auctions %>
-  </tbody>
-</table>
