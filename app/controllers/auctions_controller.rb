@@ -27,7 +27,6 @@ class AuctionsController < ApplicationController
 
   # GET /auctions/1/edit
   def edit
-      @auction = current_user.edit
   end
 
   # POST /auctions
