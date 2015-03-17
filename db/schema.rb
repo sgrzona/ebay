@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303211240) do
+ActiveRecord::Schema.define(version: 20150317163036) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150303211240) do
     t.float    "bid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "winner"
   end
 
   add_index "auction_bids", ["auction_id"], name: "index_auction_bids_on_auction_id"
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150303211240) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "expires_at"
+    t.boolean  "processed"
   end
 
   add_index "auctions", ["user_id"], name: "index_auctions_on_user_id"
