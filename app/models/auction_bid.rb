@@ -1,13 +1,12 @@
 class AuctionBid < ActiveRecord::Base
-  require "date"
   belongs_to :auction
   belongs_to :user
 
+  scope :open,  -> {joins(:auction).where("auction.expires_at > ?", Time.new)}
+  scope :closed, -> {joins(:auction).where("auction.expires_at < ?", Time.new)}
 
   validate :higher_than_current?
   validates :bid, :numericality => true
-
-
 
 
   def higher_than_current?
