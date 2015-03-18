@@ -3,9 +3,9 @@
 
 <%= form_for [@auction,@auction_bid] do |f| %>
 
-  <div class='row'>
-    <div class='col-lg-1'><%= f.label :bid %></div>
-    <div class='col-lg-3'><%= f.text_field :bid, placeholder: "Enter your bid amount" %></div>
+  <div class="form-group">
+   <%= f.label :bid %>
+   <%= f.text_field :bid, placeholder: "Enter your bid amount" %>
   </div>
   <br/>
   <%= f.submit %>
