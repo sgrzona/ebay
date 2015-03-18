@@ -47,13 +47,6 @@ class AuctionsController < ApplicationController
     end
   end
 
-
-   def winner
-      if current_user.auction_bids.closed.where(winner: true)
-      else
-      current_user.auction_bids.open
-      end
-   end
    
   # DELETE /auctions/1
   def destroy
