@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
-
   get 'users/index' => 'users#index', as: :users
   get 'users/show' => 'users#show', as: :user
-    resources :auctions do
-      collection do
-        get :my
-      end
-      resources :auction_bids
-      get 'auction_bids/highest_auction_bid' => 'auction_bids#highest_aution_bid'
+  resources :auctions do
+    collection do
+      get :my
+      get :active
     end
+    resources :auction_bids
+    get 'auction_bids/highest_auction_bid' => 'auction_bids#highest_aution_bid'
+  end
+
+  #get 'auction_bids/my' => 'auction_bids#my'
 
   devise_for :users
   resources :users, only: [:show] do
@@ -18,7 +20,8 @@ Rails.application.routes.draw do
     end
     resource :profile
     get 'profile/blurb' => 'profiles#blurb'
-  end
+    end
+   
 
   root "pages#home"
   get "about" => "pages#about"
