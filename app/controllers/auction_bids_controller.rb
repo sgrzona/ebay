@@ -1,6 +1,10 @@
 class AuctionBidsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
 
+  def my
+    @auction_bid = current_user.auction_bids.order("bid desc")
+  end
+
   def index
   	@auction = Auction.find(params[:auction_id])
     @auction_bids = @auction.auction_bids.order("bid desc")
@@ -30,21 +34,9 @@ class AuctionBidsController < ApplicationController
         render :new
       end
     else
-      flash[:error] = "You cannot bid on your won auction."
+      flash[:error] = "You cannot bid on your own auction."
       redirect_to @auction
     end
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
   end
 
   private
