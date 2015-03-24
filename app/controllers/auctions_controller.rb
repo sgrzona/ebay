@@ -7,6 +7,8 @@ class AuctionsController < ApplicationController
 
   def index
     @auctions = Auction.all
+    @open_auctions = Auctions.all_open
+    @closed_auctions = Auctions.all_closed
 
   end
 
