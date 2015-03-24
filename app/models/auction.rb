@@ -1,7 +1,7 @@
 
 class Auction < ActiveRecord::Base
-  belongs_to  :user
-  has_many :bids 
+  belongs_to  :seller, :class_name => 'User'
+  has_many :bids, :through => :bidder
   before_create :set_expiration 
   before_save :set_expiration
   validates :title, :presence => true

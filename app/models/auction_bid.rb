@@ -1,6 +1,6 @@
 class AuctionBid < ActiveRecord::Base
   belongs_to :auction
-  belongs_to :user
+  belongs_to :bidder, :class_name => 'User'
 
   scope :open,  -> {joins(:auction).where("auction.expires_at > ?", Time.new)}
   scope :closed, -> {joins(:auction).where("auction.expires_at < ?", Time.new)}
