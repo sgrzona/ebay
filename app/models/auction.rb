@@ -1,7 +1,7 @@
 
 class Auction < ActiveRecord::Base
-  belongs_to  :seller, :class_name => 'User'
-  has_many :bids, :through => :bidder
+  belongs_to  :user
+  has_many :auction_bids
   before_create :set_expiration 
   before_save :set_expiration
   validates :title, :presence => true
@@ -10,7 +10,7 @@ class Auction < ActiveRecord::Base
 
 
 
-  def set_expiration
+ def set_expiration
     unless expires_at.present?
      self.expires_at = 1.week.from_now
   end
@@ -18,11 +18,11 @@ class Auction < ActiveRecord::Base
     true
   end
 
-  def open_auctions
+  def active_auctions
     where("expires_at > ?", Time.now)
   end
 
-  def closed_auctions
+  def finished_auctions
     where("expires_at < ?", Time.now)
   end
 
@@ -34,4 +34,5 @@ class Auction < ActiveRecord::Base
   def highest_auction_bidder
     auction.user == auction.highest_auction_bid
   end 
+
 end
